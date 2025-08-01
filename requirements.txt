@@ -2,3 +2,6 @@ fastapi[all]
 sqlalchemy
 psycopg2-binary
 pydantic-settings
+PyJWT
+passlib[bcrypt]
+fastapi-mail

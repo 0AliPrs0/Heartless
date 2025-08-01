@@ -52,3 +52,19 @@ class Game(BaseModel):
 
 class User(UserBase):
     pass
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+    refresh_token: str
+
+
+class TokenData(BaseModel):
+    username: str | None = None
+
+class EmailSchema(BaseModel):
+    email: EmailStr
+
+class ResetPasswordSchema(BaseModel):
+    token: str
+    new_password: str
