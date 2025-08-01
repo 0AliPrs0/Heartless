@@ -73,3 +73,33 @@ def add_player_to_game(db: Session, game: models.Game, user: models.User):
     db.refresh(game)
     return game
 
+def create_round(db: Session, game_id: int):
+    db_round = models.Round(game_id=game_id)
+    db.add(db_round)
+    db.commit()
+    db.refresh(db_round)
+    return db_round
+
+def create_round_score(db: Session, round_id: int, user_id: int, score: int):
+    db_round_score = models.RoundScore(
+        round_id=round_id,
+        user_id=user_id,
+        score=score
+    )
+    db.add(db_round_score)
+    db.commit()
+    return db_round_score
+
+def update_player_total_score(db: Session, game_player: models.GamePlayer, score_change: int):
+    game_player.total_score += score_change
+    db.add(game_player)
+    db.commit()
+    db.refresh(game_player)
+    return game_player
+
+def end_game(db: Session, game: models.Game, winner_id: int):
+    game.status = 'finished'
+    game.winner_id = winner_id
+    db.add(game)
+    db.commit()
+    return game

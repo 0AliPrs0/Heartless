@@ -5,3 +5,4 @@ pydantic-settings
 PyJWT
 passlib[bcrypt]
 fastapi-mail
+websockets
