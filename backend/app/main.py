@@ -5,11 +5,11 @@ from .routers import auth, games
 
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="BlackHeart Game API")
+app = FastAPI(title="Heartless Game API")
 
 app.include_router(auth.router)
 app.include_router(games.router)
 
 @app.get("/")
 def read_root():
-    return {"Project": "BlackHeart", "Status": "Development"}
+    return {"Project": "Heartless", "Status": "Development"}
