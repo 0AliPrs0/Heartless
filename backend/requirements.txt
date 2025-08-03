@@ -6,3 +6,4 @@ PyJWT
 passlib[bcrypt]
 fastapi-mail
 websockets
+redis
