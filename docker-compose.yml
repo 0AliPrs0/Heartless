@@ -1,5 +1,5 @@
 services:
-  api:
+  backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -23,7 +23,7 @@ services:
     ports:
       - "3000:80" 
     depends_on:
-      - api 
+      - backend 
 
   db:
     image: postgres:15-alpine
